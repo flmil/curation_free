@@ -22,15 +22,13 @@ def rakuten
 
 	rakuma = []
 	urls.each do |url|
-		url
-		puts "---------------------------------"
-		rakuma.push(scrap(url))
+		rakuma.push(scrap_r(url))
 	end
 	rakuma.flatten!
 	return rakuma
 end
 
-def scrap(url)
+def scrap_r(url)
 	begin
 		uri = "https:#{url}"
 		html = open(uri) do |f|

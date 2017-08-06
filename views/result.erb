@@ -1,19 +1,39 @@
-<!DOCTYPE html>
-<html lang="ja">
-	<head>
-		<meta charset="UTF-8">
-		<title><%= "#{@key}:検索結果" %></title>
-	</head>
-	<body>
-		<table>
-			<% @view_rakuten.each do |r| %>
-        <tr>
-					<td><a href="<%= r[:url] %>"><%= r[:name] %></a></td>
-					<td><%= r[:money] %></td>
-				</tr>
-			<% end %>
-	  </table>
+<div>
+<!--table>
+<!% @view_rakuten.each do |r| %>
+<div>
+<tr>
+<td><img border="1" src="<1%= r[:image] %>"width="128" height="128"></td>
+<td><a href="<1%= r[:url] %>"><1%= r[:name] %></a></td>
+<td><1%= r[:money] %></td>
+<td><1%= r[:image] %></td>
+</tr>
+</div>
+<1% end %>
+	</table-->
+	<% @viewtitle = "result"%>
+	<div class="photos">
+	<% @view_rakuten.each do |r| %>
+		<ul class = "foo">
+		<li><img border="1" src="<%= r[:image] %>"width="128" height="128"></li>
+		<dl>
+		<dt><a href="<%= r[:url] %>"><%= r[:name] %></a></dt>
+		<dd><a><%= r[:money] %><a></dd>
+		</dl>
+		</ul>
+	<% end %>
 
+	</div>
+	<h1>------------</h1>
+	<!--table>
+	<1% @view_mercari.each do |m| %>
+	<tr>
+	<td><a href="<1%= m[:url] %>"><1%= r[:name] %></a></td>
+	<td><1%= m[:money] %></td>
+	<td><1%= m[:image] %></td>
+	<td><img border="1" src="<1%= r[:image] %>"width="128" height="128"></td>
+	</tr>
+	<1% end %>
 
-	</body>
-</html>
+</table-->
+</div>
