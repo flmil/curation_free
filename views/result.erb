@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8">
+		<title><%= "#{@key}:検索結果" %></title>
+	</head>
+	<body>
+		<table>
+			<% @view_rakuten.each do |r| %>
+        <tr>
+					<td><a href="<%= r[:url] %>"><%= r[:name] %></a></td>
+					<td><%= r[:money] %></td>
+				</tr>
+			<% end %>
+	  </table>
+
+
+	</body>
+</html>
