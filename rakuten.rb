@@ -16,7 +16,7 @@ end
 #ScraperRakuten.new.crawl
 
 def rakuten
-	urls = getsurl("https://rakuma.rakuten.co.jp/search/?keyword=#{@key}&selling_status=0",
+	urls = getsurl_c("https://rakuma.rakuten.co.jp/search/?keyword=#{@key}&selling_status=0",
 								 tabs = "ul.wall__list a"
 								)
 
@@ -49,6 +49,7 @@ def scrap_r(url)
 	image = "https:#{doc.css('div.gallery__main img').attribute('src').value.to_s}"
 
 	if name == nil || money == nil || image == nil 
+		puts "error^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
 		return nil
 	end
 

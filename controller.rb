@@ -11,10 +11,15 @@ require 'net/http'
 require "nokogiri"
 require "open-uri"
 require 'uri'
+require "pry"
+
 require './main.rb'
 require './rakuten.rb'
+require './fril.rb'
 require './mercari.rb'
 
+
+# binding.pry
 
 @key = "bag"
 
@@ -25,8 +30,8 @@ end
 
 post '/search' do
 	p @key = params[:word].chomp.gsub(/( )/,"+")
-	@view_rakuten = rakuten
-	#@view_mercari = mercari
+	p @view_rakuten = rakuten
+	p @view_mercari = mercari
 	erb :result
 end
 

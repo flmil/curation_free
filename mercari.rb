@@ -7,6 +7,7 @@ require "nokogiri"
 require "open-uri"
 require 'uri'
 require './main.rb'
+require './fril.rb'
 require './controller.rb'
 
 def mercari 
@@ -16,8 +17,6 @@ def mercari
 
 	hs_mercari = []
 	urls.each do |url|
-		url
-		puts "---------------------------------"
 		hs_mercari.push(scrap_m(url))
 	end
 	hs_mercari.flatten!
@@ -37,23 +36,21 @@ def scrap_m(url)
 	end
 
 	name =nil
-	naem = "入ってない"
 	money = nil
-	money = "入ってない"
-	img = nil
+	image = nil
 	site = "mercari"
 
 	doc = Nokogiri::HTML.parse(html, nil,"UTF-8")
-	name = doc.css("h2.item-name").inner_text
-	money = doc.css('span.item-price.bold').inner_text
-	doc.css('div.item-photo').each do |node|#attribute('src').to_s#.attribute("value").to_s
-		p node.css('img').attribute('src').to_s#value.to_s
+	name = doc.css('section.item-box-container h2.item-name').inner_text
+	money = doc.css('div.item-price-box.text-center span.item-price.bold').inner_text
+	doc.css('div.item-photo').each do |node|
+		image = node.css('img.owl-lazy').attribute('data-src').to_s
 	end
 
-	image = "ss"
-	#if name == nil || money == nil || image == nil 
-		#return nil
-	#end
+	if name == nil || money == nil || image == nil 
+		puts "error^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+		return nil
+	end
 
 	return {
 		url: uri,

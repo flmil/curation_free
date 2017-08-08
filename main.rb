@@ -21,11 +21,20 @@ end
 
 
 
-def getsurl(url, tabs)
+def getsurl_c(url, tabs)
 	Capybara.register_driver :poltergeist do |app|
 		Capybara::Poltergeist::Driver.new(app, {:js_errors => false, :timeout => 100 })
 	end
 	session = Capybara::Session.new(:poltergeist)
 	session.visit URI.escape(url)
 	return getslisturl(session.html, session.html.encoding.to_s, tabs)
+end
+
+
+
+def getsurl(url, tabs)
+	enc = "utf-8"
+	uri = URI.escape(url)
+	doc = Nokogiri::HTML(open(uri),nil,"utf-8")
+	return getslisturl(doc.inner_html, enc, tabs)
 end
