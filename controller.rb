@@ -30,8 +30,9 @@ end
 
 post '/search' do
 	p @key = params[:word].chomp.gsub(/( )/,"+")
-	p @view_rakuten = rakuten
-	p @view_mercari = mercari
+	@view_rakuten = rakuten
+	@view_mercari = mercari
+	@view_fril = fril
 	erb :result
 end
 

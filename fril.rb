@@ -10,13 +10,13 @@ require './main.rb'
 require './controller.rb'
 
 def fril
-	urls = getsurl("https://fril.jp/search/#{@key}?transaction=selling",
-								 tabs = "div.item-box__item-namer a"
+	urls = getsurl_c("https://fril.jp/search/#{@key}?transaction=selling",
+									 tabs = "div.item-box__text-wrapper a.link_search_title"
 								)
 
 	hs_fril = []
 	urls.each do |url|
-		hs_fril.push(scrap_m(url))
+		hs_fril.push(scrap_f(url))
 	end
 	hs_fril.flatten!
 	return hs_fril
@@ -24,7 +24,7 @@ def fril
 end
 #ScraperRakuten.new.crawl
 
-def scrap_m(url)
+def scrap_f(url)
 	begin
 		uri = url
 		html = open(uri) do |f|
@@ -37,17 +37,25 @@ def scrap_m(url)
 	name =nil
 	money = nil
 	image = nil
-	site = "mercari"
+	site = "fril"
 
 	doc = Nokogiri::HTML.parse(html, nil,"UTF-8")
 	name = doc.css('div.item-info__header h1.item__name').inner_text
 	money = doc.css('div.item-info__header p.item__value_area span.item__value').inner_text
-	doc.css('div.sp-slide sp-selected').each do |node|
-		image = node.css('img.sp-image').attribute('src').to_s
-	end
 
+	image = doc.css('img.sp-image').attribute('src').to_s
+=begin
+	doc.css('img.sp-image').each do |node|
+		image = node.attribute('src').to_s
+	end
+	doc.css('div.photoFrame').each do |node|
+		p node 
+		p image = node.css('img.sp-image').attribute('src').to_s
+		p image = node.css('img.sp-image').attribute('data-default').to_s
+	end
+=end
 	if name == nil || money == nil || image == nil 
-		puts "error^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+		puts "fril error^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
 		return nil
 	end
 

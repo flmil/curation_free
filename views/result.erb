@@ -1,25 +1,47 @@
 <% @viewtitle = "result"%>
 <div class="photos">
-<% @view_rakuten.each do |r| %>
+	<% @view_rakuten.each do |r| %>
 
-<ul class = "foo">
-	<li>
-	<img border="1" src="<%= r[:image] %>"width="128" height="128">
-	</li>
-	<dl>
-	<dt><a href="<%= r[:url] %>"><%= r[:name] %></a></dt>
-	<dd><a><%= r[:money] %><a></dd>
-	</dl>
-</ul>
-<% end %>
+		<ul class = "foo">
+			<li>
+				<img border="1" src="<%= r[:image] %>"width="128" height="128">
+			</li>
+			<dl>
+				<dt><a href="<%= r[:url] %>"><%= r[:name] %></a></dt>
+				<dd><a><%= r[:money] %><a></dd>
+			</dl>
+		</ul>
+	<% end %>
 </div>
-<-table>
+
+
+<h2>mercari</h2>
+<div>
+<table>
 <% @view_mercari.each do |m| %>
-<tr>
-<td><a href="<%= m[:url] %>"><%= m[:name] %></a></td>
-<td><%= m[:money] %></td>
-<td><img border="1" src="<%= m[:image] %>"width="128" height="128"></td>
-</tr>
+	<tr>
+		<td><a href="<%= m[:url] %>"><%= m[:name] %></a></td>
+		<td><%= m[:money] %></td>
+		<td><img border="1" src="<%= m[:image] %>"width="128" height="128"></td>
+	</tr>
 <% end %>
 
 </table-->
+</div>
+
+
+<div>
+<h2>fril</h2>
+
+<table>
+<% @view_fril.each do |f| %>
+	<tr>
+		<td><a href="<%= f[:url] %>"><%= f[:name] %></a></td>
+		<td><%= f[:money] %></td>
+		<td><img border="1" src="<%= f[:image] %>"width="128" height="128"></td>
+	</tr>
+<% end %>
+
+</table-->
+</div>
+

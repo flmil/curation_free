@@ -22,6 +22,7 @@ end
 
 
 def getsurl_c(url, tabs)
+	puts "Capybara"
 	Capybara.register_driver :poltergeist do |app|
 		Capybara::Poltergeist::Driver.new(app, {:js_errors => false, :timeout => 100 })
 	end
@@ -33,6 +34,7 @@ end
 
 
 def getsurl(url, tabs)
+	puts "Nokogiri"
 	enc = "utf-8"
 	uri = URI.escape(url)
 	doc = Nokogiri::HTML(open(uri),nil,"utf-8")

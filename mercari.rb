@@ -7,13 +7,12 @@ require "nokogiri"
 require "open-uri"
 require 'uri'
 require './main.rb'
-require './fril.rb'
 require './controller.rb'
 
 def mercari 
 	urls = getsurl("https://www.mercari.com/jp/search/?sort_order=&keyword=#{@key}&category_root=&brand_name=&brand_id=&size_group=&price_min=&price_max=&status_on_sale=1",
-									 tabs = "div.items-box-content.clearfix section.items-box a"
-									)
+								 tabs = "div.items-box-content.clearfix section.items-box a"
+								)
 
 	hs_mercari = []
 	urls.each do |url|
@@ -48,7 +47,7 @@ def scrap_m(url)
 	end
 
 	if name == nil || money == nil || image == nil 
-		puts "error^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+		puts "mercari error^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
 		return nil
 	end
 

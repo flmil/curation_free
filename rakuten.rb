@@ -17,7 +17,7 @@ end
 
 def rakuten
 	urls = getsurl_c("https://rakuma.rakuten.co.jp/search/?keyword=#{@key}&selling_status=0",
-								 tabs = "ul.wall__list a"
+									 tabs = "ul.wall__list a"
 								)
 
 	rakuma = []
