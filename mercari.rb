@@ -10,7 +10,7 @@ require './main.rb'
 require './controller.rb'
 
 def mercari 
-	urls = getsurl("https://www.mercari.com/jp/search/?sort_order=&keyword=#{@key}&category_root=&brand_name=&brand_id=&size_group=&price_min=&price_max=&status_on_sale=1",
+	urls = getsurl_c("https://www.mercari.com/jp/search/?sort_order=&keyword=#{@key}&category_root=&brand_name=&brand_id=&size_group=&price_min=&price_max=&status_on_sale=1",
 								 tabs = "div.items-box-content.clearfix section.items-box a"
 								)
 
@@ -22,6 +22,37 @@ def mercari
 	return hs_mercari
 
 end
+
+
+def mercari_2
+	urls = getsurl_c("https://www.mercari.com/jp/search/?page=2&keyword=#{@key}&sort_order=&category_root=&brand_name=&brand_id=&size_group=&price_min=&price_max=&status_on_sale=1",
+								 tabs = "div.items-box-content.clearfix section.items-box a"
+								)
+
+	hs_mercari = []
+	urls.each do |url|
+		hs_mercari.push(scrap_m(url))
+	end
+	hs_mercari.flatten!
+	return hs_mercari
+
+end
+
+def mercari_3
+	urls = getsurl_c("https://www.mercari.com/jp/search/?page=3&keyword=#{@key}&sort_order=&category_root=&brand_name=&brand_id=&size_group=&price_min=&price_max=&status_on_sale=1",
+								 tabs = "div.items-box-content.clearfix section.items-box a"
+								)
+
+	hs_mercari = []
+	urls.each do |url|
+		hs_mercari.push(scrap_m(url))
+	end
+	hs_mercari.flatten!
+	return hs_mercari
+
+end
+
+
 #ScraperRakuten.new.crawl
 
 def scrap_m(url)

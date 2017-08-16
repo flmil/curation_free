@@ -6,13 +6,17 @@
 				<div class="result_name">
 					<h1>検索結果 : <%= @key %></h1>
 				</div>
+				<div>
+					<h3 class="pages">3ページめ</h3>
+				</div>
+
 			</td>
 		</tr>
 		<tr>
 			<td>
 				<div class="result-all">
 					<div>
-						<% @all_hash.each do |h|%>
+						<% @all_hash_3.each do |h|%>
 							<ul class = "foo">
 								<li>
 									<img border="1" src="<%= h[:image] %>"width="128" height="128">
@@ -24,18 +28,17 @@
 							</ul>
 						<% end %>
 					</div>
-				</div>
+
 			</td>
 		</tr>
-		<tr>
+		<!--tr>
 			<td>
 				<div>
 					<form action="/more_2" method="post">
-						<input type="hidden" name="word_2" value="<%= @key %>">
 						<p><input type="submit" value="もっと見る"></p>
 					</form>
 				</div>
 			</td>
-		</tr>
+		</tr-->
 	</table>
 </div>

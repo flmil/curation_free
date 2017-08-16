@@ -22,6 +22,37 @@ def fril
 	return hs_fril
 
 end
+
+def fril_2
+	urls = getsurl_c("https://fril.jp/search/#{@key}/page/2?order=desc&sort=relevance&transaction=selling",
+									 tabs = "div.item-box__text-wrapper a.link_search_title"
+								)
+
+	hs_fril = []
+	urls.each do |url|
+		hs_fril.push(scrap_f(url))
+	end
+	hs_fril.flatten!
+	return hs_fril
+
+end
+
+def fril_3
+	urls = getsurl_c("https://fril.jp/search/#{@key}/page/3?order=desc&sort=relevance&transaction=selling",
+									 tabs = "div.item-box__text-wrapper a.link_search_title"
+								)
+
+	hs_fril = []
+	urls.each do |url|
+		hs_fril.push(scrap_f(url))
+	end
+	hs_fril.flatten!
+	return hs_fril
+
+end
+
+
+
 #ScraperRakuten.new.crawl
 
 def scrap_f(url)

@@ -28,6 +28,36 @@ def rakuten
 	return rakuma
 end
 
+
+
+def rakuten_2
+	urls = getsurl_c("https://rakuma.rakuten.co.jp/search/?keyword=#{@key}&selling_status=0&page=2",
+									 tabs = "ul.wall__list a"
+								)
+
+	rakuma = []
+	urls.each do |url|
+		rakuma.push(scrap_r(url))
+	end
+	rakuma.flatten!
+	return rakuma
+end
+
+def rakuten_3
+	urls = getsurl_c("https://rakuma.rakuten.co.jp/search/?keyword=#{@key}&selling_status=0&page=3",
+									 tabs = "ul.wall__list a"
+								)
+
+	rakuma = []
+	urls.each do |url|
+		rakuma.push(scrap_r(url))
+	end
+	rakuma.flatten!
+	return rakuma
+end
+
+
+
 def scrap_r(url)
 	begin
 		uri = "https:#{url}"

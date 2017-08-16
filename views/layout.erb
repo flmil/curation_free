@@ -9,6 +9,25 @@
 		<title><%= @viewtitle %></title>
 	</head>
 	<body>
-		<%= yield %>
+		<div class="all">
+			<table class="layout-table">
+				<tr>
+					<td>
+
+						<div class="search-form">
+							<form action="/search" method="post">
+								<p>検索：<input type="text" name="word"></p>
+								<p><input type="submit" value="検索"></p>
+							</form>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<%= yield %>
+					</td>
+				</tr>
+			</table>
+		</div>
 	</body>
 </html>
