@@ -6,6 +6,9 @@
 				<div class="result_name">
 					<h1>検索結果 : <%= @key %></h1>
 				</div>
+				<div class="page-number">
+					<h4 class"page-number-h2"><%= @page_number %>ページ目</h4>
+				</div>
 			</td>
 		</tr>
 		<tr>
@@ -29,9 +32,10 @@
 		</tr>
 		<tr>
 			<td>
-				<div>
-					<form action="/more_2" method="post">
-						<input type="hidden" name="word_2" value="<%= @key %>">
+				<div class="more-pages">
+					<form action="/more" method="post">
+						<input type="hidden" name="word" value="<%= @key %>">
+						<input type="hidden" name="pages" value="<%= @page_number %>">
 						<p><input type="submit" value="もっと見る"></p>
 					</form>
 				</div>

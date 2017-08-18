@@ -24,8 +24,9 @@ def mercari
 end
 
 
-def mercari_2
-	urls = getsurl_c("https://www.mercari.com/jp/search/?page=2&keyword=#{@key}&sort_order=&category_root=&brand_name=&brand_id=&size_group=&price_min=&price_max=&status_on_sale=1",
+def more_mercari(number)
+	@number = number
+	urls = getsurl_c("https://www.mercari.com/jp/search/?page=#{@number}&keyword=#{@key}&sort_order=&category_root=&brand_name=&brand_id=&size_group=&price_min=&price_max=&status_on_sale=1",
 								 tabs = "div.items-box-content.clearfix section.items-box a"
 								)
 
@@ -38,6 +39,7 @@ def mercari_2
 
 end
 
+=begin
 def mercari_3
 	urls = getsurl_c("https://www.mercari.com/jp/search/?page=3&keyword=#{@key}&sort_order=&category_root=&brand_name=&brand_id=&size_group=&price_min=&price_max=&status_on_sale=1",
 								 tabs = "div.items-box-content.clearfix section.items-box a"
@@ -51,6 +53,7 @@ def mercari_3
 	return hs_mercari
 
 end
+=end
 
 
 #ScraperRakuten.new.crawl

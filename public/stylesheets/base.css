@@ -69,3 +69,11 @@ ul.foo{
 	color: #fff;
 	z-index: 2;
 }
+
+.floating {
+	top: 1.5%;
+	right: 1%;
+	position: fixed;
+	z-index: 1;
+}
+

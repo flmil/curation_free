@@ -8,6 +8,19 @@ require "open-uri"
 require "uri"
 
 
+def tmpHash(r_rakuten, r_mercari, r_fril)
+	all_hash = []
+	r_rakuten.each do |rakuten|
+		all_hash.push(rakuten)
+	end
+	r_mercari.each do |mercari| 
+		all_hash.push(mercari)
+	end
+	r_fril.each do |fril| 
+		all_hash.push(fril)
+	end
+	return all_hash
+end
 
 def getslisturl(html, enc, tabs)
 	doc = Nokogiri::HTML.parse(html, enc)

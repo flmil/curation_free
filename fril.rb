@@ -23,8 +23,9 @@ def fril
 
 end
 
-def fril_2
-	urls = getsurl_c("https://fril.jp/search/#{@key}/page/2?order=desc&sort=relevance&transaction=selling",
+def more_fril(number)
+	@number = number
+	urls = getsurl_c("https://fril.jp/search/#{@key}/page/#{@number}?order=desc&sort=relevance&transaction=selling",
 									 tabs = "div.item-box__text-wrapper a.link_search_title"
 								)
 
@@ -37,6 +38,7 @@ def fril_2
 
 end
 
+=begin
 def fril_3
 	urls = getsurl_c("https://fril.jp/search/#{@key}/page/3?order=desc&sort=relevance&transaction=selling",
 									 tabs = "div.item-box__text-wrapper a.link_search_title"
@@ -50,6 +52,7 @@ def fril_3
 	return hs_fril
 
 end
+=end
 
 
 

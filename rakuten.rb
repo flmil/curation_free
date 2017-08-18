@@ -30,8 +30,8 @@ end
 
 
 
-def rakuten_2
-	urls = getsurl_c("https://rakuma.rakuten.co.jp/search/?keyword=#{@key}&selling_status=0&page=2",
+def more_rakuten(number)
+	urls = getsurl_c("https://rakuma.rakuten.co.jp/search/?keyword=#{@key}&selling_status=0&page=#{number}",
 									 tabs = "ul.wall__list a"
 								)
 
@@ -43,6 +43,7 @@ def rakuten_2
 	return rakuma
 end
 
+=begin
 def rakuten_3
 	urls = getsurl_c("https://rakuma.rakuten.co.jp/search/?keyword=#{@key}&selling_status=0&page=3",
 									 tabs = "ul.wall__list a"
@@ -55,6 +56,7 @@ def rakuten_3
 	rakuma.flatten!
 	return rakuma
 end
+=end
 
 
 
