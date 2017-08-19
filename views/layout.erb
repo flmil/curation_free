@@ -50,8 +50,9 @@
                     "</form>" +
                     "</ul>"
                   )
-                  stopload()
                 }
+                $("#search_value").append("<div class='more-pages'> <center> <form action='/more' method='post'> <input type='hidden' name='word' value='<%= @key %>'> <input type='hidden' name='pages' value='<%= @page_number %>'> <button type='submit'>もっと見る</button> </form> </center> </div> ")
+                stopload()
               }
             },
             error: function() {         // HTTPエラー時
