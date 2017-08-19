@@ -105,7 +105,8 @@ get '/search' do
 end
 
 post '/search' do
-	p @key = params[:word].chomp.gsub(/( )/,"+")
+  params = JSON.parse request.body.read
+	p @key = params["word"].chomp.gsub(/( )/,"+")
 	if @key == ""
 		erb :not_words
 	else
@@ -115,7 +116,7 @@ post '/search' do
 		@view_fril = fril
 		unless  @view_rakuten == nil && @view_mercari == nil && @view_fril == nil
 			@all_hash = tmpHash(@view_rakuten, @view_mercari, @view_fril)
-			erb :result
+      return @all_hash.to_json
 		else
 			erb :not_words
 		end
