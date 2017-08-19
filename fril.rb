@@ -90,7 +90,8 @@ def scrap_f(url)
 =end
 	if name == nil || money == nil || image == nil 
 		puts "fril error^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
-		return nil
+		#return nil
+		erb :not_words
 	end
 
 	return {

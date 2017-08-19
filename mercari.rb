@@ -82,7 +82,8 @@ def scrap_m(url)
 
 	if name == nil || money == nil || image == nil 
 		puts "mercari error^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
-		return nil
+		erb :not_words
+		#return nil
 	end
 
 	return {

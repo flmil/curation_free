@@ -82,7 +82,8 @@ def scrap_r(url)
 
 	if name == nil || money == nil || image == nil 
 		puts "error^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
-		return nil
+		#return nil
+		erb :not_words
 	end
 
 	return {

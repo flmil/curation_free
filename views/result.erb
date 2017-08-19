@@ -16,14 +16,16 @@
 				<div class="result-all">
 					<div>
 						<% @all_hash.each do |h|%>
-							<ul class = "foo">
+							<ul class="foo">
 								<li>
-									<img border="1" src="<%= h[:image] %>"width="128" height="128">
+									<a href="<%= h[:url] %>"><img border="1" src="<%= h[:image] %>"width="150px" height="150px"></a>
 								</li>
-								<dl>
-									<dt><a href="<%= h[:url] %>"><%= h[:name] %></a></dt>
-									<dd><a><%= h[:money] %><a></dd>
-								</dl>
+								<li>
+									<a href="<%= h[:url] %>"><h6><%= h[:name] %></h6></a>
+								</li>
+								<li>
+									<a href="<%= h[:url] %>"><h5><%= h[:money] %></h5></a>
+								</li>
 							</ul>
 						<% end %>
 					</div>
@@ -33,11 +35,13 @@
 		<tr>
 			<td>
 				<div class="more-pages">
+					<center>
 					<form action="/more" method="post">
 						<input type="hidden" name="word" value="<%= @key %>">
 						<input type="hidden" name="pages" value="<%= @page_number %>">
-						<p><input type="submit" value="もっと見る"></p>
+						<button type="submit">もっと見る</button>
 					</form>
+					</center>
 				</div>
 			</td>
 		</tr>
