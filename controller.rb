@@ -76,7 +76,7 @@ end
 #lists----------------------------------------------------------------------
 post '/add_list' do
 	current_user.lists.create(name: params[:name],money: params[:money],url: params[:url],site: params[:site],image: params[:image])
-	redirect '/'
+	redirect '/list'
 end
 get '/list' do
 	if current_user.nil?
@@ -85,6 +85,11 @@ get '/list' do
 		@lists = current_user.lists
 	end
 	erb :lists
+end
+post '/list/:id/delete' do
+	list = List.find(params[:id])
+	list.destroy
+	redirect '/list'
 end
 #lists-----------------------------------------------------------------------
 
