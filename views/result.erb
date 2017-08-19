@@ -26,6 +26,14 @@
 								<li>
 									<a href="<%= h[:url] %>"><h5><%= h[:money] %></h5></a>
 								</li>
+								<form action="add_list" method="post">
+									<input type="hidden" name="name" value="<%= h[:name] %>">
+									<input type="hidden" name="money" value="<%= h[:money] %>">
+									<input type="hidden" name="url" value="<%= h[:url] %>">
+									<input type="hidden" name="image" value="<%= h[:image] %>">
+									<input type="hidden" name="site" value="<%= h[:site] %>">
+									<button type="submit">気になるリストに追加する</button>
+								</form>
 							</ul>
 						<% end %>
 					</div>
@@ -36,11 +44,11 @@
 			<td>
 				<div class="more-pages">
 					<center>
-					<form action="/more" method="post">
-						<input type="hidden" name="word" value="<%= @key %>">
-						<input type="hidden" name="pages" value="<%= @page_number %>">
-						<button type="submit">もっと見る</button>
-					</form>
+						<form action="/more" method="post">
+							<input type="hidden" name="word" value="<%= @key %>">
+							<input type="hidden" name="pages" value="<%= @page_number %>">
+							<button type="submit">もっと見る</button>
+						</form>
 					</center>
 				</div>
 			</td>

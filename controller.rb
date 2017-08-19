@@ -5,6 +5,7 @@ require 'sinatra/reloader' if development?
 require 'sinatra'
 require 'sinatra/json'
 
+require 'sinatra/activerecord'
 require 'capybara/poltergeist'
 require 'capybara-screenshot'
 require 'net/http'
@@ -13,10 +14,27 @@ require "open-uri"
 require 'uri'
 require "pry"
 
+require './models.rb'
+require './models'
 require './main.rb'
 require './rakuten.rb'
 require './fril.rb'
 require './mercari.rb'
+require 'sinatra/reloader' if development?
+
+enable :sessions
+
+helpers do
+	def current_user
+		User.find_by(id: session[:user])
+	end
+end
+
+before '/tasks' do
+	if current_user.nil?
+		redirect '/'
+	end
+end
 
 
 # binding.pry
@@ -27,7 +45,53 @@ get '/' do
 	erb :index
 end
 
+#User-------------------------------------------------------------------------
+get '/signup' do
+	erb :sign_up
+end
+post '/signup' do
+	user = User.create(name: params[:name],mail: params[:mail],password: params[:password],password_confirmation: params[:password_confirmation])
+	if user.persisted?
+		session[:user] = user.id
+	end
+	redirect '/'
+end
+
+get '/signin' do
+	erb :sign_in
+end
+post '/signin' do
+	user = User.find_by(mail: params[:mail])
+	if user && user.authenticate(params[:password])
+		session[:user] = user.id
+	end
+	redirect '/'
+end
+get '/signout' do
+	session[:user] = nil
+	redirect '/'
+end
+#User-------------------------------------------------------------------------
+
+#lists----------------------------------------------------------------------
+post '/add_list' do
+	current_user.lists.create(name: params[:name],money: params[:money],url: params[:url],site: params[:site],image: params[:image])
+	redirect '/'
+end
+get '/list' do
+	if current_user.nil?
+		@lists = List.none
+	else
+		@lists = current_user.lists
+	end
+	erb :lists
+end
+#lists-----------------------------------------------------------------------
+
 get '/more' do
+	erb :index
+end
+get '/search' do
 	erb :index
 end
 

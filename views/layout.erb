@@ -22,9 +22,23 @@
 					<td>
 						<div class="search-form">
 							<form action="/search" method="post">
-								<p>検索：<input type="text" name="word"></p>
+								<p>検索：<input type="text" name="word">
 								<button type="submit" id="sample">検索</button>
+								</p>
 							</form>
+						</div>
+						<div>
+							<ul>
+								<% if !current_user.nil? %>
+									<li>こんにちは、<%= current_user.name %>さん</li>
+									<li><a href="/signout">ログアウト</a></li>
+									<li><a href="/list">きになるリスト</a></li>
+								<% else %>
+									<li>新規ユーザーですか?</li>
+									<li><a href="/signin">ログイン</a></li>
+									<li><a href="/signup">新規登録</a></li>
+								<% end %>
+							</ul>
 						</div>
 					</td>
 				</tr>

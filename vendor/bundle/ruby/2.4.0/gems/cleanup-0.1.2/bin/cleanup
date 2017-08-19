@@ -1,0 +1,28 @@
+#!/usr/bin/env ruby
+
+require 'optparse'
+require 'clean_up'
+require 'clean_up/version'
+
+options = {}
+
+OptionParser.new do |opts|
+  opts.banner = "Usage: cleanup [options]"
+
+  opts.on('-c', '--config [path]', 'Default: full path to rules.rb file') do |path|
+    options[:path] = File.expand_path(path) if path
+  end
+
+  opts.on('-v', '--version') { puts "CleanUp v#{CleanUp::VERSION}"; exit(0) }
+end.parse!
+
+[
+  options[:path],
+  File.expand_path('rules.rb'),
+  File.expand_path('rules.rb', '~')
+].detect do |file|
+  if file && File.exist?(file)
+    load(file)
+    CleanUp.check
+  end
+end || puts("Config file were not found."); exit(1)

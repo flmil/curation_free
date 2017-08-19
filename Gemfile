@@ -1,12 +1,25 @@
 # frozen_string_literal: true
 source "https://rubygems.org"
+gem 'rake'
 gem 'sinatra'
 gem "sinatra-contrib"
+gem 'activerecord'
+gem 'sinatra-activerecord'
 gem "nokogiri"
 gem 'capybara'
 gem "capybara-screenshot"
 gem "poltergeist"
 gem "pry-byebug"
+gem 'bcrypt'
+gem 'cleanup'
+
+group :development do
+	 gem 'sqlite3'
+end
+
+group :production do
+	gem 'pg'
+end
 
 
 

@@ -6,6 +6,7 @@ require 'net/http'
 require "nokogiri"
 require "open-uri"
 require 'uri'
+require './models.rb'
 require './main.rb'
 
 class ScraperRakuten

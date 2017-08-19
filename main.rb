@@ -6,6 +6,7 @@ require 'net/http'
 require "nokogiri"
 require "open-uri"
 require "uri"
+require './models.rb'
 
 
 def tmpHash(r_rakuten, r_mercari, r_fril)
