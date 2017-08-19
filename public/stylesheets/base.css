@@ -90,3 +90,11 @@ ul.foo{
 	z-index: 1;
 }
 
+
+input[type="text"] {
+	width: 200px;
+	height: 20px;
+	-webkit-transition: width .3s;
+	border:solid 1px #1E90FF;
+	transition: width .3s;
+}
