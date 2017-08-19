@@ -31,20 +31,22 @@
                 alert("Transaction error. " + json_data[1]);
                 return;
               } else {
+                $(".foo").remove();
                 for(var i=0; i < json_data.length; i++){
-                  console.log*(json_data[i].url)
                   $("#search_value").append(
                     "<ul class='foo'>" +
                     "<li>" + "<a href='" + json_data[i].url + "'><img border='1' src='" + json_data[i].image + "' width='70%' height='auto'> </a>" + "</li>" +
                     "<li>" + "<a href='" + json_data[i].url + "'><h6>" + json_data[i].name + "</h6>" + "</li>" + 
                     "<li>" + "<a href='" + json_data[i].url + "'><h5>" + json_data[i].money + "</h5>" + "</li>" + 
-                    "<form action='add_list' method='post'>" +
-                    "<input type='hidden' name='name' value='" + json_data[i].name + "'>" +
-                    "<input type='hidden' name='money' value='" + json_data[i].money + "'>" +
-                    "<input type='hidden' name='url' value='" + json_data[i].url + "'>" +
-                    "<input type='hidden' name='image' value='" + json_data[i].image + "'>" +
-                    "<input type='hidden' name='site' value='" + json_data[i].site + "'>" +
-                    "<button  type='submit'>気になるリストに追加する</button>" + 
+                    <% if current_user %>
+                      "<form action='add_list' method='post'>" +
+                      "<input type='hidden' name='name' value='" + json_data[i].name + "'>" +
+                      "<input type='hidden' name='money' value='" + json_data[i].money + "'>" +
+                      "<input type='hidden' name='url' value='" + json_data[i].url + "'>" +
+                      "<input type='hidden' name='image' value='" + json_data[i].image + "'>" +
+                      "<input type='hidden' name='site' value='" + json_data[i].site + "'>" +
+                      "<button  type='submit'>気になるリストに追加する</button>" + 
+                    <% end %>
                     "</form>" +
                     "</ul>"
                   )
