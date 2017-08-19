@@ -75,8 +75,12 @@ end
 
 #lists----------------------------------------------------------------------
 post '/add_list' do
+	if !current_user.nil?
 	current_user.lists.create(name: params[:name],money: params[:money],url: params[:url],site: params[:site],image: params[:image])
 	redirect '/list'
+	else
+		redirect 'signup'
+	end
 end
 get '/list' do
 	if current_user.nil?
