@@ -156,6 +156,37 @@ input[type="text"] {
 		color: #fff;
 		z-index: 2;
 	}
+	#menu2{
+		text-align: center;
+		width:1280px;/*メニューの横幅*/
+		padding:0;
+		margin:0;
+		list-style-type: none;/*枠線のスタイル(無し)*/
+
+	}
+	#menu2 li{
+		width:20%;/*リンク一つ一つの幅*/
+		float:left;/*回り込み(左)*/
+		padding:0;
+		margin:0;
+		text-align:center;/*テキストの位置*/
+	}
+	#menu2 li a{/*メニューのリンク*/
+		width:auto;
+		font-size:12px;/*フォントサイズ*/
+		font-weight:bold;/*フォントの太さ*/
+		padding:10px 0;
+		text-decoration:none;/*テキストのデコレーション*/
+		display:block;/*メニューを横に並べている何か*/
+		color:aqua;/*何もしていない時のメニューの色*/
+		background-color:transparent;/*背景の色(透明)*/
+		-webkit-transition: background-color 0.3s linear, color 0.3s linear, border-color 0.3s linear;/*メニューのカーソルが乗ってから色が変わるまでの時間*/
+	}
+	#menu2 li a:hover{/*メニューの上にカーソルが来た時*/
+		background-color: aqua;/*背景色*/
+		color: black;/*文字色*/
+		border-color: black;/*枠線の色*/
+	}
 
 
 }

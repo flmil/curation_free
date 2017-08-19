@@ -1,5 +1,5 @@
 current directory: /Users/Rei/Desktop/Programming/U22_contest/U22_Curation/vendor/bundle/ruby/2.4.0/gems/sqlite3-1.3.13/ext/sqlite3
-/Users/Rei/.rbenv/versions/2.4.1/bin/ruby -r ./siteconf20170819-45335-t6bpxa.rb extconf.rb
+/Users/Rei/.rbenv/versions/2.4.1/bin/ruby -r ./siteconf20170820-80987-xxa96q.rb extconf.rb
 checking for sqlite3.h... yes
 checking for pthread_create() in -lpthread... yes
 checking for sqlite3_libversion_number() in -lsqlite3... yes
@@ -30,4 +30,4 @@ linking shared-object sqlite3/sqlite3_native.bundle
 
 current directory: /Users/Rei/Desktop/Programming/U22_contest/U22_Curation/vendor/bundle/ruby/2.4.0/gems/sqlite3-1.3.13/ext/sqlite3
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 sqlite3_native.bundle ./.gem.20170819-45335-1yzafbj/sqlite3
+/usr/bin/install -c -m 0755 sqlite3_native.bundle ./.gem.20170820-80987-1wrjce0/sqlite3

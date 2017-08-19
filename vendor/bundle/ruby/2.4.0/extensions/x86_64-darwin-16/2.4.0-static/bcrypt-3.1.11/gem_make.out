@@ -1,5 +1,5 @@
 current directory: /Users/Rei/Desktop/Programming/U22_contest/U22_Curation/vendor/bundle/ruby/2.4.0/gems/bcrypt-3.1.11/ext/mri
-/Users/Rei/.rbenv/versions/2.4.1/bin/ruby -r ./siteconf20170819-78637-ut9evo.rb extconf.rb
+/Users/Rei/.rbenv/versions/2.4.1/bin/ruby -r ./siteconf20170820-80987-c9qx1c.rb extconf.rb
 creating Makefile
 
 current directory: /Users/Rei/Desktop/Programming/U22_contest/U22_Curation/vendor/bundle/ruby/2.4.0/gems/bcrypt-3.1.11/ext/mri
@@ -16,4 +16,4 @@ linking shared-object bcrypt_ext.bundle
 
 current directory: /Users/Rei/Desktop/Programming/U22_contest/U22_Curation/vendor/bundle/ruby/2.4.0/gems/bcrypt-3.1.11/ext/mri
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 bcrypt_ext.bundle ./.gem.20170819-78637-10bs3na
+/usr/bin/install -c -m 0755 bcrypt_ext.bundle ./.gem.20170820-80987-hlp1l2
