@@ -74,12 +74,20 @@ end
 #User-------------------------------------------------------------------------
 
 #lists----------------------------------------------------------------------
-post '/add_list' do
+post '/search/add_list' do
 	if !current_user.nil?
-	current_user.lists.create(name: params[:name],money: params[:money],url: params[:url],site: params[:site],image: params[:image])
-	redirect '/list'
+		current_user.lists.create(name: params[:name],money: params[:money],url: params[:url],site: params[:site],image: params[:image])
+		redirect '/list'
 	else
-		redirect 'signup'
+		redirect 'signin'
+	end
+end
+post '/search/:url/page/add_list' do
+	if !current_user.nil?
+		current_user.lists.create(name: params[:name],money: params[:money],url: params[:url],site: params[:site],image: params[:image])
+		redirect '/list'
+	else
+		redirect 'signin'
 	end
 end
 get '/list' do
@@ -104,29 +112,39 @@ get '/search' do
 	erb :index
 end
 
+
 post '/search' do
 	p @key = params[:word].chomp.gsub(/( )/,"+")
 	if @key == ""
 		erb :not_words
 	else
-		p @page_number = 1
-		@view_rakuten = rakuten
-		@view_mercari = mercari
-		@view_fril = fril
-		unless  @view_rakuten == nil && @view_mercari == nil && @view_fril == nil
-			@all_hash = tmpHash(@view_rakuten, @view_mercari, @view_fril)
-			erb :result
-		else
-			erb :not_words
-		end
+		redirect "/search/#{@key}"
 	end
 end
 
+get '/search/:key' do
+	p @key = params[:key]
+	p @page_number = 1
+	@view_rakuten = rakuten
+	@view_mercari = mercari
+	@view_fril = fril
+	unless  @view_rakuten == nil && @view_mercari == nil && @view_fril == nil
+		@all_hash = tmpHash(@view_rakuten, @view_mercari, @view_fril)
+		erb :result
+	else
+		erb :not_words
+	end
+end
 
 post '/more' do
 	p @key = params[:word]
-	p page_number = params[:pages].to_i + 1
-	@page_number = page_number
+	p @page_number = params[:pages].to_i + 1
+	redirect "/search/#{@key}/page/#{@page_number}"
+end
+
+get '/search/:key/page/:page_number' do
+	p @key = params[:key]
+	p page_number = params[:page_number]
 	@view_rakuten_2 = more_rakuten(page_number)
 	@view_mercari_2 = more_mercari(page_number)
 	@view_fril_2 = more_fril(page_number)

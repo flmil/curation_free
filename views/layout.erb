@@ -6,60 +6,136 @@
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script-->
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script>
+$(function() {
+	var h = $(window).height();
+
+	$('#wrap').css('display','none');
+	$('#loader-bg ,#loader').height(h).css('display','block');
+});
+
+$(window).load(function () { //全ての読み込みが完了したら実行
+	//$(window).ready(function () { //全ての読み込みが完了したら実行
+	$('#loader-bg').delay(900).fadeOut(800);
+	$('#loader').delay(600).fadeOut(300);
+	$('#wrap').css('display', 'block');
+});
+
+//10秒たったら強制的にロード画面を非表示
+$(function(){
+	setTimeout('stopload()',10000);
+});
+
+function stopload(){
+	$('#wrap').css('display','block');
+	$('#loader-bg').delay(900).fadeOut(800);
+	$('#loader').delay(600).fadeOut(300);
+}
+		</script>
+
+
+		<!--script type="text/javascript">
+		$(function(){
+		$("#pushOnlyOnce").click(function(){
+		//alert('こんにちは!');
+		var h = $(window).height();
+		$('#wrap').css('display','none');
+		$('#loader-bg ,#loader').height(h).css('display','block');
+
+		var button = $(this);
+		button.attr("disabled", true);
+
+		//var data = {
+		//word: $("#word").val(),
+		//};
+
+		var comment = $("#word").val();
+		$.ajax({
+		type: "POST",
+		url: "/search",
+		data: {
+		word: comment,
+		}
+		});
+
+		});
+		});
+		</script-->
+
+
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="/stylesheets/base.css">
 		<title><%= @viewtitle %></title>
 	</head>
-	<body>
-		<div class="all">
-			<div>
-				<button class="floating"><a href="#top">↑↑</a></button>
+	<body id="warp">
+		<div id="loader-bg">
+			<div id="loader">
+				<img src="/images/ajaxLoader.gif" width="80" height="80" alt="Now Loading..." />
+				<p>Now Loading...</p>
 			</div>
-
-			<table class="layout-table" width="100%">
-				<tr>
-					<td>
-						<div class="search-form">
-							<form action="/search" method="post">
-								<p>検索：<input type="text" name="word">
-								<div id="target">
-									<!--button type="submit" id="sample">検索</button-->
-									<button id="pushOnlyOnce" class="btnOn"><span>検索</span></button>
-								</div>
-
-								</p>
-							</form>
-						</div>
-						<div>
-							<ul id="menu2">
-								<% if !current_user.nil? %>
-									<li>こんにちは、<%= current_user.name %>さん</li>
-									<li><a href="/signout">ログアウト</a></li>
-									<li><a href="/list">きになるリスト</a></li>
-								<% else %>
-									<li><a href="/signin">ログイン</a></li>
-									<li><a href="/signup">新規会員登録</a></li>
-								<% end %>
-							</ul>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td class="layout">
-						<%= yield %>
-					</td>
-				</tr>
-			</table>
 		</div>
+		<div id="wrap">
+			<!--div id="loader-bg">
+		 <div id="loader">
+		 <img src="images/ajaxLoader.gif" width="100px" height="100px" alt="Now Loading..." />
+		 <p>Now Loading...</p>
+		 </div>
+		 </div-->
+
+
+
+		 <div class="all">
+			 <div>
+				 <button class="floating"><a href="#top">↑↑</a></button>
+			 </div>
+
+
+
+			 <table class="layout-table" width="100%">
+				 <tr>
+					 <td>
+
+						 <ul id="menu2">
+							 <div class="search-form">
+								 <li class="menu_inp">
+									 <form action="/search" method="post">
+										 <p>検索：<input type="text" name="word" id="word">
+										 <span id="btn">
+											 <button id="pushOnlyOnce" class="btnOn"><span>検索</span></button>
+										 </span>
+
+										 </p>
+									 </form>
+								 </li>
+								 <% if !current_user.nil? %>
+									 <li class="menu_in_name"><p>こんにちは、<%= current_user.name %>さん</p></li>
+									 <li class="menu_in_out"><p><a href="/signout">ログアウト</a></p></li>
+									 <li class="menu_in_list"><p><a href="/list">きになるリスト</a></p></li>
+								 <% else %>
+									 <li class="menu_out_in"><a href="/signin">ログイン</a></li>
+									 <li class="menu_out_up"><a href="/signup">新規会員登録</a></li>
+								 <% end %>
+						 </ul>
+							 </div>
+					 </td>
+				 </tr>
+				 <tr>
+					 <td class="layout">
+						 <%= yield %>
+					 </td>
+				 </tr>
+			 </table>
+		 </div>
+		 </div>
 	</body>
+	<!--script>
 
-	<script>
+	 $('#pushOnlyOnce').one('click', function() {
+	 $(this).removeClass('btnOn').addClass('btnOff');
+	 $('#pushOnlyOnce').html('検索中しばらくお待ちください');
+	 });
 
-$('#pushOnlyOnce').one('click', function() {
-	$(this).removeClass('btnOn').addClass('btnOff');
-	$('#pushOnlyOnce').html('検索中しばらくお待ちください');
-});
-
-	</script>
+	 </script-->
 
 </html>

@@ -9,7 +9,7 @@
 			<td>
 				<div class="result-all">
 					<div>
-						<% @lists.each do |list| %>
+						<% @lists.order('id DESC').each do |list| %>
 							<ul class="foo">
 								<li>
 									<a href="<%= list[:url] %>"><img border="1" src="<%= list[:image] %>"width="70%" height="auto"></a>
