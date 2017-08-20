@@ -133,7 +133,7 @@ post '/more' do
 	@view_fril_2 = more_fril(page_number)
 	unless  @view_rakuten_2 == nil && @view_mercari_2 == nil && @view_fril_2 == nil
 		@all_hash = tmpHash(@view_rakuten_2, @view_mercari_2, @view_fril_2)
-		erb :result
+    return @all_hash.to_json
 	else
 		erb :not_words
 	end
