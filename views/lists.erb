@@ -22,7 +22,7 @@
 									<a href="<%= list[:url] %>"><h5><%= list[:money] %></h5></a>
 								</li>
 								<form action="/list/<%= list.id %>/delete" method="post">
-									<button type="submit">削除</button>
+								<input type="submit" class="delete-button" value="削除">
 								</form>
 							</ul>
 						<% end %>

@@ -32,7 +32,7 @@
 									<input type="hidden" name="url" value="<%= h[:url] %>">
 									<input type="hidden" name="image" value="<%= h[:image] %>">
 									<input type="hidden" name="site" value="<%= h[:site] %>">
-									<button type="submit">気になるリストに追加する</button>
+									<input type="submit" class="list-form-button" value="気になるリストに追加する">
 								</form>
 							</ul>
 						<% end %>
@@ -47,7 +47,7 @@
 						<form action="/more" method="post">
 							<input type="hidden" name="word" value="<%= @key %>">
 							<input type="hidden" name="pages" value="<%= @page_number %>">
-							<button type="submit">もっと見る</button>
+							<input type="submit" class="more-form-button" value="もっと見る">
 						</form>
 					</center>
 				</div>

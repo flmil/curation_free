@@ -1,19 +1,33 @@
 <% @viewtitle = "ログイン" %>
 <div>
-	<h1>ログイン画面</h1>
-	<form action="/signin" method="post">
-		<div>
-			<div>
-				<p>メールアドレスを入力してください</p>
-				<input name="mail" placeholder="mail"><br>
-				<p>パスワードを入力してください</p>
-				<input name="password" type="password" placeholder="password"><br>
-			</div>
-			<br>
-			<div>
-				<input type="submit" value="ログイン">
-			</div>
-		</div>
-	</form>
-	<h2><a href="/signup">まだ会員でない方はこちら</a></h2>
+	<center>
+		<table class="user-form">
+			<tr>
+				<td>
+					<h1>ログイン画面</h1>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<center>
+						<form action="/signin" method="post">
+							<div>
+								<div>
+									<p>メールアドレスを入力してください</p>
+									<input name="mail" placeholder="mail"><br>
+									<p>パスワードを入力してください</p>
+									<input name="password" type="password" placeholder="password"><br>
+								</div>
+								<br>
+								<div>
+									<input type="submit" value="ログイン" class="user-form-button">
+								</div>
+							</div>
+						</form>
+						<h2><a href="/signup">まだ会員でない方はこちら</a></h2>
+					</center>
+				</td>
+			</tr>
+		</table>
+	</center>
 </div>

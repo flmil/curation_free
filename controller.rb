@@ -104,10 +104,10 @@ end
 #lists-----------------------------------------------------------------------
 
 get '/more' do
-	erb :index
+	erb :index, layout: nil
 end
 get '/search' do
-	erb :index
+	erb :index, layout: nil
 end
 
 
