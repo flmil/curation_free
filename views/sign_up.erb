@@ -1,12 +1,18 @@
+<% @viewtitle = "新規アカウント作成" %>
 <div>
 	<form action="/signup" method="post">
 		<div>
 			<div>
-				<input name="name" placeholder="名前を入力"><br>
-				<input name="mail" placeholder="メールアドレスを入力"><br>
-				<input name="password" type="password" placeholder="パスワードを入力"><br>
-				<input name="password_confirmation" type="password" placeholder="パスワードをもう一度入力">
+				<p>名前を入力してください</p>
+				<input name="name" placeholder="name"><br>
+				<p>メールアドレスを入力してください</p>
+				<input name="mail" placeholder="mail"><br>
+				<p>パスワードを設定してください</p>
+				<input name="password" type="password" placeholder="password"><br>
+				<p>上の項目と同じパスワードを入力してください</p>
+				<input name="password_confirmation" type="password" placeholder="password">
 			</div>
+			<br>
 			<div>
 				<input type="submit" value="登録">
 			</div>

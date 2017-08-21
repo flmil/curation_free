@@ -35,34 +35,6 @@ function stopload(){
 		</script>
 
 
-		<!--script type="text/javascript">
-		$(function(){
-		$("#pushOnlyOnce").click(function(){
-		//alert('こんにちは!');
-		var h = $(window).height();
-		$('#wrap').css('display','none');
-		$('#loader-bg ,#loader').height(h).css('display','block');
-
-		var button = $(this);
-		button.attr("disabled", true);
-
-		//var data = {
-		//word: $("#word").val(),
-		//};
-
-		var comment = $("#word").val();
-		$.ajax({
-		type: "POST",
-		url: "/search",
-		data: {
-		word: comment,
-		}
-		});
-
-		});
-		});
-		</script-->
-
 
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="/stylesheets/base.css">
@@ -71,7 +43,7 @@ function stopload(){
 	<body id="warp">
 		<div id="loader-bg">
 			<div id="loader">
-				<img src="/images/ajaxLoader.gif" width="80" height="80" alt="Now Loading..." />
+				<img src="/images/ajaxLoader.gif" width="100px" height="100px" alt="Now Loading..." />
 				<p>Now Loading...</p>
 			</div>
 		</div>
@@ -95,29 +67,40 @@ function stopload(){
 			 <table class="layout-table" width="100%">
 				 <tr>
 					 <td>
-
-						 <ul id="menu2">
-							 <div class="search-form">
-								 <li class="menu_inp">
-									 <form action="/search" method="post">
-										 <p>検索：<input type="text" name="word" id="word">
-										 <span id="btn">
-											 <button id="pushOnlyOnce" class="btnOn"><span>検索</span></button>
-										 </span>
-
-										 </p>
-									 </form>
-								 </li>
-								 <% if !current_user.nil? %>
-									 <li class="menu_in_name"><p>こんにちは、<%= current_user.name %>さん</p></li>
-									 <li class="menu_in_out"><p><a href="/signout">ログアウト</a></p></li>
-									 <li class="menu_in_list"><p><a href="/list">きになるリスト</a></p></li>
-								 <% else %>
-									 <li class="menu_out_in"><a href="/signin">ログイン</a></li>
-									 <li class="menu_out_up"><a href="/signup">新規会員登録</a></li>
-								 <% end %>
-						 </ul>
-							 </div>
+						 <table class="top-table">
+							 <tr>
+								 <td class="top-form">
+									 <div class="search-form">
+										 <form action="/search" method="post">
+											 <p>検索：<input type="text" name="word" id="word"><button type="submit" >検索</button></p>
+											 <!--span id="btn">
+												 <button id="pushOnlyOnce" class="btnOn"><span>検索</span></button>
+											 </span-->
+										 </form>
+									 </div>
+								 </td>
+								 <div>
+									 <% if !current_user.nil? %>
+										 <td class="top-name">
+												 <p>こんにちは、<%= current_user.name %>さん</p>
+										 </td>
+										 <td class="top-in">
+											 <ul id="menu2">
+												 <li class="menu_in_out"><p><a href="/signout">ログアウト</a></p></li>
+												 <li class="menu_in_list"><p><a href="/list">きになるリスト</a></p></li>
+											 </ul>
+										 </td>
+									 <% else %>
+										 <td class="top-no">
+											 <ul id="menu2">
+												 <li class="menu_out_in"><a href="/signin">ログイン</a></li>
+												 <li class="menu_out_up"><a href="/signup">新規会員登録</a></li>
+											 </ul>
+										 </td>
+									 <% end %>
+								 </div>
+							 </tr>
+						 </table>
 					 </td>
 				 </tr>
 				 <tr>
@@ -137,5 +120,8 @@ function stopload(){
 	 });
 
 	 </script-->
+
+
+
 
 </html>

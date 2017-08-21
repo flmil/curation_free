@@ -7,6 +7,9 @@ body{
 	background-position: 50% 50%;            /* 背景画像の位置は画面中央 */
 	background-attachment:fixed;             /* 背景画像を固定する */
 }
+ul {
+	list-style:none;
+}
 
 .floating {
 	top: 97%;
@@ -16,14 +19,12 @@ body{
 }
 
 input[type="text"] {
-	width: 200px;
-	height: 20px;
+	width: 250px;
+	height: 25px;
 	-webkit-transition: width .3s;
 	border:solid 1px #1E90FF;
 	transition: width .3s;
 }
-
-
 
 #loader-bg {
 	display: none;
@@ -48,6 +49,60 @@ input[type="text"] {
 	color: #fff;
 	z-index: 2;
 }
+
+#menu2{
+	text-align: center;
+	width:100%;/*メニューの横幅*/
+	padding:0;
+	margin:0;
+	list-style-type: none;/*枠線のスタイル(無し)*/
+
+}
+#menu2 li{
+	width:50%;/*リンク一つ一つの幅*/
+	float:left;/*回り込み(左)*/
+	padding:0;
+	margin:0;
+	text-align:center;/*テキストの位置*/
+	/*background-color: rgba( 130, 130, 130, 0.15 );*/
+}
+#menu2 li a{/*メニューのリンク*/
+	width:auto;
+	font-size:12px;/*フォントサイズ*/
+	font-weight:bold;/*フォントの太さ*/
+	padding:15px 0;
+	text-decoration:none;/*テキストのデコレーション*/
+	display:block;/*メニューを横に並べている何か*/
+	color:black;/*何もしていない時のメニューの色*/
+	background-color:transparent;/*背景の色(透明)*/
+	-webkit-transition: background-color 0.3s linear, color 0.3s linear, border-color 0.3s linear;/*メニューのカーソルが乗ってから色が変わるまでの時間*/
+}
+/*.menu_inp{
+width:70%;
+}
+.menu_in_name{
+width:10%;
+}
+.menu_in_out{
+width:10%;
+}
+.menu_in_list{
+width:10%;
+}
+.menu_out_in{
+width:15%;
+}
+.menu_out_up{
+width:15%;
+}*/
+#menu2 li a:hover{/*メニューの上にカーソルが来た時*/
+	/*background-color: aqua;/*背景色*/
+	color: black;/*文字色*/
+	font-size:13px;/*フォントサイズ*/
+	border-color: black;/*枠線の色*/
+	background-color: rgba( 130, 130, 130, 0.40 );
+}
+
 
 
 
@@ -105,13 +160,37 @@ input[type="text"] {
 		margin-top: 10%;
 	}
 
+	.top-table td{ 
+		display: block;
+	}
+	.top-table{
+		width: 100%;
+		background-color: rgba( 130, 130, 130, 0.15 );
+		text-align:center;/*テキストの位置*/
+	}
+	.top-form{
+		width: 100%;
+	}
+	.top-name{
+		width: 100%;
+	}
+	.top-in{
+		width: 100%;
+	}
+	.top-no{
+		width: 100%;
+	}
+
+
 }
 
 
 /* ウィンドウ幅が480px以上の場合に適用するCSS */
 @media screen and ( min-width:480px )
 {
-
+	.index-body h1{
+		font-size:40px;
+	}
 
 	.all-window{
 		width: 100%;
@@ -160,56 +239,33 @@ input[type="text"] {
 	.foo li img{
 		margin-top: 10%;
 	}
-	#menu2{
-		text-align: center;
-		width:100%;/*メニューの横幅*/
-		padding:0;
-		margin:0;
-		list-style-type: none;/*枠線のスタイル(無し)*/
 
-	}
-	#menu2 li{
-		/*width:20%;リンク一つ一つの幅*/
-		float:left;/*回り込み(左)*/
-		padding:0;
-		margin:0;
-		text-align:center;/*テキストの位置*/
+	.top-table{
+		width: 100%;
 		background-color: rgba( 130, 130, 130, 0.15 );
+		text-align:center;/*テキストの位置*/
 	}
-	#menu2 li a{/*メニューのリンク*/
-		width:auto;
-		font-size:12px;/*フォントサイズ*/
-		font-weight:bold;/*フォントの太さ*/
-		padding:10px 0;
-		text-decoration:none;/*テキストのデコレーション*/
-		display:block;/*メニューを横に並べている何か*/
-		color:aqua;/*何もしていない時のメニューの色*/
-		background-color:transparent;/*背景の色(透明)*/
-		-webkit-transition: background-color 0.3s linear, color 0.3s linear, border-color 0.3s linear;/*メニューのカーソルが乗ってから色が変わるまでの時間*/
+	.top-form{
+		width: 50%;
 	}
-	.menu_inp{
-		width:70%;
+	.top-name{
+		width: 20%;
 	}
-	.menu_in_name{
-		width:10%;
+	.top-in{
+		width: 30%;
 	}
-	.menu_in_out{
-		width:10%;
+	.top-no{
+		width: 30%;
 	}
-	.menu_in_list{
-		width:10%;
+	.index-form input[type="text"] {
+		width: 50%;
+		height: 50px;
+		font-size:30px;
+		-webkit-transition: width .5s;
+		border:solid 3px #888;
+		transition: width .5s;
 	}
-	.menu_out_in{
-		width:15%;
+	.index-form p {
+		font-size:30px;
 	}
-	.menu_out_up{
-		width:15%;
-	}
-	#menu2 li a:hover{/*メニューの上にカーソルが来た時*/
-		background-color: aqua;/*背景色*/
-		color: black;/*文字色*/
-		border-color: black;/*枠線の色*/
-	}
-
-
 }

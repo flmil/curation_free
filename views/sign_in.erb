@@ -1,10 +1,15 @@
+<% @viewtitle = "ログイン" %>
 <div>
+	<h1>ログイン画面</h1>
 	<form action="/signin" method="post">
 		<div>
 			<div>
-				<input name="mail" placeholder="メールアドレスを入力"><br>
-				<input name="password" type="password" placeholder="パスワードを入力"><br>
+				<p>メールアドレスを入力してください</p>
+				<input name="mail" placeholder="mail"><br>
+				<p>パスワードを入力してください</p>
+				<input name="password" type="password" placeholder="password"><br>
 			</div>
+			<br>
 			<div>
 				<input type="submit" value="ログイン">
 			</div>

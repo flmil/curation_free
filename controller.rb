@@ -1,6 +1,5 @@
 require 'bundler/setup'
 Bundler.require
-
 require 'sinatra/reloader' if development?
 require 'sinatra'
 require 'sinatra/json'
@@ -37,12 +36,11 @@ before '/tasks' do
 end
 
 
-# binding.pry
 
 @key
 
 get '/' do
-	erb :index
+	erb :index, layout: nil #, layout: :layout#:layout => !request.xhr? #, layout => false
 end
 
 #User-------------------------------------------------------------------------

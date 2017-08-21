@@ -1,10 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<!--script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script-->
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="/stylesheets/base.css">
+		<title><%= @viewtitle %></title>
+	</head>
+	<body class="index-body">
+
+		<% @viewtitle = "Top" %>
+		<div>
+			<table class="top-table">
+				<tr>
+					<td class="top-form">
+					</td>
+					<div>
+						<% if !current_user.nil? %>
+							<td class="top-name">
+								<p>こんにちは、<%= current_user.name %>さん</p>
+							</td>
+							<td class="top-in">
+								<ul id="menu2">
+									<li class="menu_in_out"><p><a href="/signout">ログアウト</a></p></li>
+									<li class="menu_in_list"><p><a href="/list">きになるリスト</a></p></li>
+								</ul>
+							</td>
+						<% else %>
+							<td class="top-no">
+								<ul id="menu2">
+									<li class="menu_out_in"><a href="/signin">ログイン</a></li>
+									<li class="menu_out_up"><a href="/signup">新規会員登録</a></li>
+								</ul>
+							</td>
+						<% end %>
+					</div>
+				</tr>
+			</table>
+			</div>
+
+			<div>
+				<div id="container">
+					<center>
+						<h1>このサイトは簡単に</h1>
+						<table>
+							<tr>
+								<td rowspan="3"><img src="/images/fleemarket.png" width="100%" height="auto"></td>
+								<td><h2>1. いろんなサイトを別々に検索しなくていい</h2></td>
+							</tr>
+							<tr>
+								<td><h2>2. きになるリストを保存できる</h2></td>
+							</tr>
+							<tr>
+								<td><h2>3. 購入時は、販売サイトでの購入なので安心</h2></td>
+							</tr>
+						</table>
 
 
-<!--Script-->
-<!--div class="search-form">
-	<form action="/search" method="post">
-		<p>検索：<input type="text" name="word"></p>
-		<p><input type="submit" value="検索"></p>
-	</form>
-</div-->
-<p>index</p>
+						<br><br><br><br><br><br>
+						<h1>以下の３つのサイトから同時検索</h1><br><br>
+
+						<div class="index-form">
+							<form action="/search" method="post">
+								<p>検索：<input type="text" name="word" id="word" ><button type="submit" >検索</button></p>
+							</form>
+						</div>
+
+						<img src="/images/mercari.png" width="30%" height="auto">
+						<img src="/images/FRIL.png" width="30%" height="auto"><br><br>
+						<img src="/images/rakuma.png" width="20%" height="auto">
+
+
+						<br><br><br><br><br><br>
+						<h1>便利だと思ったら共有しよう！<br>
+							共有していろんな人に広めよう</h1>
+
+						<a href="https://twitter.com/share" class="twitter-share-button" data-text="便利!!今までいくつものサイトを行き来してたのにこれを使えば一回で!!メルカリもラクマもフリルも!!" data-size="large">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+
+						<br><br><br><br><br><br>
+
+					</center>
+
+				</div>
+			</div>
+
+
+
+	</body>
+</html>
