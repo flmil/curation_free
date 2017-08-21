@@ -3,7 +3,6 @@ Bundler.require
 require 'sinatra/reloader' if development?
 require 'sinatra'
 require 'sinatra/json'
-
 require 'sinatra/activerecord'
 require 'capybara/poltergeist'
 require 'capybara-screenshot'
