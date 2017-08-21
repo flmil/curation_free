@@ -13,13 +13,13 @@ gem "pry-byebug"
 gem 'bcrypt'
 gem 'cleanup'
 
+
 group :production do
 	gem 'pg'
 end
 
-
 group :development do
-	 gem 'sqlite3'
+	gem 'sqlite3'
 end
 
 
